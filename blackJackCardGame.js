@@ -1,6 +1,4 @@
-<script>
-
-//Blackjack game, need 2 objects. Card, Deck.//
+//Blackjack game, need 2 objects. Card, Deck.
 
 function Card(rank, suit){
 	this.rank = rank; //number of the card
@@ -11,8 +9,8 @@ function Card(rank, suit){
 function Deck(){
 	this.cards = []; //an Array is meant to hold many things
 	this.buildDeck = function(){ //create a card
-		for (r=1; r<14; r++){ //for rank, i can also put 'var r =' in for loop
-			for (s=1; s<5; s++){
+		for (var r=0; r<4; r++){ //for rank, i can also put 'var r =' in for loop
+			for (var s=0; s<13; s++){
         var card = new Card(r, s); // Pulls from lines 17 and 18 
         this.cards.push(card); //this pushes card made on line 19 in to the Array of this object, on line 15
 		  }
@@ -22,8 +20,8 @@ function Deck(){
   this.shuffle = function(){
     for (i=0; i<52; i++){
       var cardShuffle = this.cards.shift()
-      var randomIndex = Math.floor(Math.random * 52)
-      this.cards.splice(randomIndex, 0) //The splice() method adds/removes items to/from an array, and returns the removed item(s)
+      var randomIndex = Math.floor(Math.random() * 52)
+      this.cards.splice(randomIndex, 1, cardShuffle) //The splice() method adds/removes items to/from an array, and returns the removed item(s)
     }
   }
 }
@@ -58,4 +56,3 @@ function Player(name, deck){
 //need shuffle method in Card object
 //need to play game
 //need method to add point values in Player
-</script>
